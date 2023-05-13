@@ -7,12 +7,13 @@ import dao.CarDao;
 import java.util.List;
 
 public class CarServiceImp implements CarService {
-    CarDao carDao = new CarDaoImp();
+    private CarDao carDao = new CarDaoImp();
     @Override
     public List<Car> setCarsList() {
         return carDao.setCarsList();
     }
 
+    @Override
     public List<Car> getCarsFromList(List<Car> carsList, int quantity) {
         return carDao.getCarsFromList(carsList, quantity);
     }
