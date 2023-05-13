@@ -1,10 +1,13 @@
 package dao;
 
 import model.Car;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarDaoImp implements CarDao{
+@Repository
+public class CarDaoImp implements CarDao {
     @Override
     public List<Car> setCarsList() {
         List<Car> carsList = new ArrayList<>(5);
