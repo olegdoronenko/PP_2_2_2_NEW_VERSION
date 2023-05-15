@@ -1,27 +1,30 @@
 package service;
 
-import dao.CarDaoImp;
 import model.Car;
-import dao.CarDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+
 @Service
 public class CarServiceImp implements CarService {
-    @Autowired
-    private CarDao carDao = new CarDaoImp();
+
     @Override
     public List<Car> setCarsList() {
-        return carDao.setCarsList();
+        List<Car> carsList = new ArrayList<>(5);
+        carsList.add(0, new Car("BMW", "X5", "black"));
+        carsList.add(1, new Car("Lincoln", "Navigator", "pearl-white"));
+        carsList.add(2, new Car("Ford", "Bronco", "green"));
+        carsList.add(3, new Car("Pagani", "Zonda", "silver"));
+        carsList.add(4, new Car("Toyota", "Mark II", "blue"));
+
+        return carsList;
     }
 
     @Override
     public List<Car> getCarsFromList(List<Car> carsList, int quantity) {
-        return carDao.getCarsFromList(carsList, quantity);
+        return carsList.subList(0, quantity);
     }
 
     @Override
